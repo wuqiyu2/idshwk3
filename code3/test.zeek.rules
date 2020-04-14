@@ -1,0 +1,13 @@
+global a :table[string]of int =table();
+global b :set[connection]=set();
+event http_header(c:connection,is_orig： bool,name:string,value:string)
+{
+if(value in a )
+{a[value]+=1;
+}
+else
+{
+a[value]=1;
+if a[value]>2;
+print b;
+}
